@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+:root
+{
+	--font-roboto:'Roboto', sans-serif;
+    --thin: 100;
+	--light: 300;
+	--regular: 400;
+	--medium: 500;
+	--bold: 700;
+    --black: 900;
+    --bitcoin-orange: #f7931a;
+    --soft-orange: #ffe9d5;
+    --primary-blue: #0d6efd;
+    --soft-blue: #e7f5ff;
+    --warm-black: #282623;
+    --black: #201e1c;
+    --grey: #bababa;
+    --off-white: #faf8f7;
+    --just-white: #fff;
+}
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html
+{
+    font-size: 62.5%;
+    font-family: var(--font-roboto);
+}
