@@ -1,8 +1,9 @@
 import { City } from "./City";
 import { Place } from "./Place";
 
-export class Parking
+export class Parking implements ResponseRequestParking
 {
+
     code!: number;
     nit!: string;
     name!: string ;
@@ -14,4 +15,15 @@ export class Parking
     {
 
     }
+    
+    status!: string;
+    message!: string;
+    data!: Parking[];
+}
+
+export interface ResponseRequestParking
+{
+    status: string;
+    message: string;
+    data: Array<Parking>;
 }

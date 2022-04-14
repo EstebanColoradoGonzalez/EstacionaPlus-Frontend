@@ -1,0 +1,32 @@
+<header class="header-content">
+    <app-header></app-header>
+    <section class="information">
+        <h1>Bienvenido a Estaciona+</h1>
+        <p> EstacionaPlus es una aplicación donde podras ver la disponibilidad de los parqueaderos de tu región, para que puedas asegurar tu puesto en el instante que desees. </p>
+    </section>
+</header>
+<main >
+  <section class="parkings__section" id="parkingsSection">
+    <h1 class="parking-title" >Estacionamientos Disponibles</h1>
+    <div class="container-fluid">
+      <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+        <div class="col" *ngFor="let parking of parkings">
+          <a [title]="parking.name" [routerLink]="['/parking', parking.code]">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{ parking.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted"> NIT: {{ parking.nit }}</h6>
+                <p class="card-text">Dirección: {{ parking.address }} - {{ parking.city.name }}, {{ parking.city.state.name }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer text-center text-white">
+    <div class="text-center p-3">
+      <p class="h4">© 2022 Copyright: Estaciona+</p>
+    </div>
+</footer>

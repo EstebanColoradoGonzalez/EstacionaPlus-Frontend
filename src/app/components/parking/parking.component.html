@@ -1,0 +1,43 @@
+<header class="header-content">
+  <app-header></app-header>
+  <section class="information" *ngIf="parking" >
+    <h1>
+      {{ parking.name }}
+    </h1>
+    <p>
+      <strong>NIT:</strong> {{ parking.nit }}
+      <br>
+      <strong>Dirección:</strong> {{ parking.address }}
+      <br>
+      {{ parking.city.name }}, {{ parking.city.state.name }}
+    </p>
+  </section>
+</header>
+<main>
+  <section class="places__section" *ngIf="parking">
+    <h1 class="place-title" >Lugares</h1>
+    <div class="container-fluid">
+      <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+        <div class="col" *ngFor="let place of parking.places">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ place.code }} - {{ place.position }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted"> Tipo de Lugar: {{ place.typePlace.name }}</h6>
+                <figure class="container-image" *ngIf="!place.isTaken">
+                  <img src="../../../assets/images/asientoDisponible.png" alt="Disponible">
+                </figure>
+                <figure class="container-image" *ngIf="place.isTaken">
+                  <img src="../../../assets/images/asientoOcupado.png" alt="Disponible">
+                </figure>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer text-center text-white">
+    <div class="text-center p-3">
+      <p class="h4">© 2022 Copyright: Estaciona+</p>
+    </div>
+</footer>

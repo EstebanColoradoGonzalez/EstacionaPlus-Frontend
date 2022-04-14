@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from './components/main/header/header.component';
-import { HomeComponent } from './components/main/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { ParkingComponent } from './components/parking/parking.component';
 
 const routes: Routes = [{
   path: 'home',
@@ -10,6 +11,10 @@ const routes: Routes = [{
   {
     path: 'header',
     component: HeaderComponent
+  },
+  {
+    path: 'parking/:parkingCode',
+    component: ParkingComponent
   },
   {
     path: '**',
