@@ -1,10 +1,10 @@
 export class State
 {
-    code!: number;
-    name!: string;
+    code: number = 0;
+    name: string = '';
 
     constructor()
     {
-        
+
     }
 }

@@ -1,33 +1,38 @@
 *
 {
-    font-weight: var(--medium);
+  font-weight: var(--medium);
 }
 
 .nav-link, .nav-item button, .modal-title
 {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 .form-floating label, .alert div, .modal-content button
 {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
+}
+
+.modal-body select
+{
+  font-size: 1.4rem;
 }
 
 .modal-content p
 {
-    text-align:center;
-    font-size: 1.4rem;
+  text-align:center;
+  font-size: 1.4rem;
 }
 
 img
 {
-    display: block;
-    margin: 0px auto;
-    width: 45px;
-    height: 45px;
+  display: block;
+  margin: 0px auto;
+  width: 45px;
+  height: 45px;
 }
 
 li
 {
-    margin-right: 15px;
+  margin-right: 15px;
 }
