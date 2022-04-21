@@ -2,7 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Parking, ResponseRequestParking } from 'src/app/models/Parking';
 import { HomeComponent } from '../home/home.component';
-import { ParkingService } from '../../services/parkingService';
+import { ParkingService } from '../../../services/parkingService';
 
 @Component({
   selector: 'app-parking',

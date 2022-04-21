@@ -1,6 +1,6 @@
 .header-content
 {
-  background-image: url('../../../assets/images/fondo.jpg');
+  background-image: url('../../../../assets/images/fondo.jpg');
   height: 100vh;
   background-position: center center;
   background-repeat: no-repeat;
@@ -28,25 +28,18 @@
 {
   color: var(--just-white);
   font-size: 1.8rem;
-  margin-top: 50px;
 }
 
-.container-image img
-{
-  width: 50px;
-  height: 50px;
-}
-
-.places__section
+.parkings__section
 {
   margin: 15px;
 }
 
-.place-title
+.parking-title
 {
   font-size: 3rem;
-  padding-left: 6px;
   padding-bottom: 15px;
+  padding-left: 6px;
   font-weight: var(--bold);
   color: var(--primary-blue);
 }
@@ -54,6 +47,11 @@
 .row
 {
   padding-bottom: 15px;
+}
+
+a
+{
+  text-decoration: none;
 }
 
 .col-md-4
@@ -74,12 +72,6 @@
 .card-text
 {
   font-size: 1.6rem;
-}
-
-.container-image
-{
-  display: flex;
-  justify-content: center;
 }
 
 .footer

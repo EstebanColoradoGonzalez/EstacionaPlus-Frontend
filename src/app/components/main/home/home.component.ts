@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Parking, ResponseRequestParking } from '../../models/Parking';
-import { ParkingService } from '../../services/parkingService';
-import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import { Parking, ResponseRequestParking } from '../../../models/Parking';
+import { ParkingService } from '../../../services/parkingService';
 
 @Component({
   selector: 'app-home',

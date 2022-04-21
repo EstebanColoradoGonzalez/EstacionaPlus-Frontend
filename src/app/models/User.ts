@@ -19,14 +19,14 @@ export class User implements ResponseRequestUser
   }
 
   status!: string;
-  message!: string;
+  messages!: string[];
   data!: User[];
-  
+
 }
 
 export interface ResponseRequestUser
 {
   status: string;
-  message: string;
+  messages: string[];
   data: Array<User>;
 }

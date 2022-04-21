@@ -1,0 +1,137 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="../../../../assets/images/logo.png" alt="EstacionaPlus"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#parkingsSection">Estacionamientos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Acerca de Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">Iniciar Sesión</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Iniciar Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" [formGroup]="formLogin">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" [ngClass]="{'is-invalid': alertEmailLoginInput}" id="emailLogin" placeholder="nombre@ejemplo.com" formControlName="emailLogin" required>
+          <label for="floatingInput">Correo Electronico</label>
+        </div>
+        <label class="message-error" *ngIf="alertEmailLoginInput">Este campo es obligatorio</label>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="passwordLogin" placeholder="contraseña" formControlName="passwordLogin" required>
+          <label for="floatingPassword">Contraseña</label>
+        </div>
+        <label class="message-error" *ngIf="alertPasswordLoginInput || alertSignUpSuccessful">Este campo es obligatorio</label>
+        <div class="container-fluid h-100">
+          <div class="row w-100 align-items-center">
+            <div class="col text-center">
+              <button type="submit" class="btn btn-primary" (click)="onLogin()">Iniciar Sesión</button>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="alert alert-danger" role="alert" *ngIf="alertWrongCredentials">
+          El correo o la contraseña no son correctos
+        </div>
+        <br>
+        <p>
+          ¿No tienes una cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signin" data-bs-dismiss="modal">Regístrate gratis</a> <br>
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="signin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registrarse</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" [formGroup]="formSignin">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': alertNameSigninInput}" id="names" placeholder="nombre" formControlName="names" required>
+          <label for="floatingInput">Nombres</label>
+        </div>
+        <label class="message-error" *ngIf="alertNameSigninInput">Este campo es obligatorio</label>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': alertLastNamesSigninInput}" id="lastNames" placeholder="apellidos" formControlName="lastNames"required>
+          <label for="floatingInput">Apellidos</label>
+        </div>
+        <label class="message-error" *ngIf="alertLastNamesSigninInput">Este campo es obligatorio</label>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" [ngClass]="{'is-invalid': alertIdentificationNumberSigninInput}" id="identificationNumber" placeholder="identificacion" formControlName="identificationNumber" required>
+          <label for="floatingInput">Número de Identificación</label>
+        </div>
+        <label class="message-error" *ngIf="alertIdentificationNumberSigninInput">Este campo es obligatorio</label>
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" [ngClass]="{'is-invalid': alertPhoneSigninInput}" id="phone" placeholder="identificacion" formControlName="phone" required>
+          <label for="floatingInput">Telefono</label>
+        </div>
+        <label class="message-error" *ngIf="alertPhoneSigninInput">Este campo es obligatorio</label>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" [ngClass]="{'is-invalid': alertEmailSigninInput}" id="email" placeholder="usuario@ejemplo.com" formControlName="email" required>
+          <label for="floatingInput">Correo Electronico</label>
+        </div>
+        <label class="message-error" *ngIf="alertEmailSigninInput">Este campo es obligatorio</label>
+        <div class="form-controled">
+          <input class="form-control datalist" [ngClass]="{'is-invalid': alertTypeVehicleSigninInput}" list="datalistOptions" id="exampleDataList" placeholder="Tipo de Vehiculo" formControlName="typeVehicle">
+          <label class="message-error" *ngIf="alertTypeVehicleSigninInput">Este campo es obligatorio</label>
+          <datalist class="datalist" id="datalistOptions">
+            <option value="Motocicleta">
+            <option value="AutoMovil">
+          </datalist>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': alertLicenseSigninInput}" id="license" placeholder="licencia" formControlName="license" required>
+          <label for="floatingInput">Licencia</label>
+        </div>
+        <label class="message-error" *ngIf="alertLicenseSigninInput">Este campo es obligatorio</label>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" [ngClass]="{'is-invalid': alertPasswordSigninInput}" id="password" placeholder="contraseña" formControlName="password" required>
+          <label for="floatingPassword">Contraseña</label>
+        </div>
+        <label class="message-error" *ngIf="alertPasswordSigninInput">Este campo es obligatorio</label>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" [ngClass]="{'is-invalid': alertConfirmPasswordSigninInput}" id="confirmPassword" placeholder="confirmar contraseña" formControlName="confirmPassword" required>
+          <label for="floatingPassword">Confirmar Contraseña</label>
+        </div>
+        <label class="message-error" *ngIf="alertConfirmPasswordSigninInput">Este campo es obligatorio</label>
+        <div class="container-fluid h-100">
+          <div class="row w-100 align-items-center">
+            <div class="col text-center">
+              <button type="submit" class="btn btn-primary mt-3 btn-register" (click)="onClickRegister()">Registrarse</button> <br> <br>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="alertSignUpFailed">
+          {{message}}
+        </div>
+        <p style="text-align:center">
+          ¿Ya tienes una cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#login" data-bs-dismiss="modal">Inicia Sesion</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
