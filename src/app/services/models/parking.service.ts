@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Parking } from '../models/Parking';
+import { Parking } from '../../models/Parking';
 
 const urlAPI = 'http://localhost:8080/api/parkings';
 

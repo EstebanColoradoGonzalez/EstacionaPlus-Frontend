@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/models/User';
+import { UserService } from 'src/app/services/models/user.service';
 import { Parking, ResponseRequestParking } from '../../../models/Parking';
-import { ParkingService } from '../../../services/parkingService';
+import { ParkingService } from '../../../services/models/parking.service';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,10 @@ export class HomeComponent implements OnInit
 {
   parkings: Array<Parking> = [];
   code: number | undefined;
+  user: User = new User();
+  isLoged!: boolean;
 
-  constructor(private parkingService: ParkingService)
+  constructor(private parkingService: ParkingService, private userService: UserService, )
   {
     this.getAll();
   }
@@ -20,6 +24,15 @@ export class HomeComponent implements OnInit
   ngOnInit(): void
   {
     this.getAll();
+
+    if(localStorage.getItem('email') !== "")
+    {
+      this.isLoged = true
+    }
+    else
+    {
+      this.isLoged = false;
+    }
   }
 
   private getAll()

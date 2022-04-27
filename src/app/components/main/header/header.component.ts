@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Login } from 'src/app/models/Login';
 import { User } from 'src/app/models/User';
-import { UserService } from '../../../services/userService';
+import { LoginService } from 'src/app/services/login/Login.service';
+import { UserService } from '../../../services/models/user.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
+  template: '<app-home [isLoged]="isLog"></app-home>',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit
 {
   user: User = new User();
   userLogon: User = new User();
-  userLogin: User = new User();
+  login: Login = new Login();
   password: string = "";
   message: string = "";
   alertEmailLoginInput: boolean = false;
@@ -49,7 +54,7 @@ export class HeaderComponent implements OnInit
     confirmPassword: new FormControl('', Validators.required)
   });
 
-  constructor(private userService: UserService)
+  constructor(public http: HttpClient, private userService: UserService, private loginService: LoginService, private router: Router)
   {
 
   }
@@ -168,29 +173,31 @@ export class HeaderComponent implements OnInit
     this.alertPasswordLoginInput = false;
     this.alertWrongCredentials = false;
 
-    this.userLogin.email = this.formLogin.get('emailLogin')?.value;
-    this.userLogin.password = this.formLogin.get('passwordLogin')?.value;
+    this.login.email = this.formLogin.get('emailLogin')?.value;
+    this.login.password = this.formLogin.get('passwordLogin')?.value;
 
-    if(this.userLogin.email === "")
+    if(this.login.email === "")
     {
       this.alertEmailLoginInput = true;
     }
 
-    if(this.userLogin.password === "")
+    if(this.login.password === "")
     {
       this.alertPasswordLoginInput = true;
     }
 
-    this.userService.validateCredentials(this.userLogin).subscribe(response =>
+    this.loginService.validateCredentials(this.login).subscribe(response =>
     {
       if(response.messages[0] === 'OK')
       {
-        localStorage.setItem('encode', this.userLogin.email);
+        let token = response.data[0];
+        window.localStorage.setItem("Authorization", token as string);
+        window.localStorage.setItem("email", this.login.email);
         window.location.href= '/home';
       }
       else
       {
-        if(this.userLogin.email !== "" || this.userLogin.password !== "")
+        if(this.login.email !== "" || this.login.password !== "")
         {
           this.alertWrongCredentials = true;
         }

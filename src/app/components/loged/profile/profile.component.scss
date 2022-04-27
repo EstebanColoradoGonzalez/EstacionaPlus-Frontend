@@ -24,6 +24,33 @@
 
 }
 
+.card
+{
+  margin: 15px 10px 15px 10 px;
+}
+
+.card-body
+{
+  margin: 5px;
+}
+
+.card-header
+{
+  font-size: 2rem;
+  font-weight: var(--bold);
+  padding-bottom: 5px;
+}
+
+.card-title
+{
+  font-size: 1.8rem;
+}
+
+.card-text
+{
+  font-size: 1.4rem;
+}
+
 .footer
 {
   background: linear-gradient(#0348af, #0d6efd);
