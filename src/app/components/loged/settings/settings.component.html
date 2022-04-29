@@ -1,1 +1,78 @@
-<p>settings works!</p>
+<header class="header-content">
+  <app-header-loged></app-header-loged>
+  <section class="information">
+      <h1>Configuración</h1>
+  </section>
+</header>
+<main>
+  <section class="card w-100" [formGroup]="formModify">
+    <div class="card-header">
+      Información Personal
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': alertNameModifyInput}" [ngModel]="" id="names" placeholder="nombre" formControlName="names" required>
+      <label for="floatingInput">Nombres</label>
+    </div>
+    <label class="message-error" *ngIf="alertNameModifyInput">Este campo es obligatorio</label>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': alertLastNamesModifyInput}" id="lastNames" placeholder="apellidos" formControlName="lastNames"required>
+      <label for="floatingInput">Apellidos</label>
+    </div>
+    <label class="message-error" *ngIf="alertLastNamesModifyInput">Este campo es obligatorio</label>
+
+    <div class="form-floating mb-3">
+      <input type="number" class="form-control" [ngClass]="{'is-invalid': alertIdentificationNumberModifyInput}" id="identificationNumber" placeholder="identificacion" formControlName="identificationNumber" required>
+      <label for="floatingInput">Número de Identificación</label>
+    </div>
+    <label class="message-error" *ngIf="alertIdentificationNumberModifyInput">Este campo es obligatorio</label>
+    <div class="form-floating mb-3">
+      <input type="number" class="form-control" [ngClass]="{'is-invalid': alertPhoneModifyInput}" id="phone" placeholder="identificacion" formControlName="phone" required>
+      <label for="floatingInput">Telefono</label>
+    </div>
+    <label class="message-error" *ngIf="alertPhoneModifyInput">Este campo es obligatorio</label>
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" [ngClass]="{'is-invalid': alertEmailModifyInput}" id="email" placeholder="usuario@ejemplo.com" formControlName="email" required>
+      <label for="floatingInput">Correo Electronico</label>
+    </div>
+    <label class="message-error" *ngIf="alertEmailModifyInput">Este campo es obligatorio</label>
+    <div class="form-controled">
+      <input class="form-control datalist" [ngClass]="{'is-invalid': alertTypeVehicleModifyInput}" list="datalistOptions" id="exampleDataList" placeholder="Tipo de Vehiculo" formControlName="typeVehicle">
+      <label class="message-error" *ngIf="alertTypeVehicleModifyInput">Este campo es obligatorio</label>
+      <datalist class="datalist" id="datalistOptions">
+        <option value="Motocicleta">
+        <option value="AutoMovil">
+      </datalist>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': alertLicenseModifyInput}" id="license" placeholder="licencia" formControlName="license" required>
+      <label for="floatingInput">Licencia</label>
+    </div>
+    <label class="message-error" *ngIf="alertLicenseModifyInput">Este campo es obligatorio</label>
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" [ngClass]="{'is-invalid': alertPasswordModifyInput}" id="password" placeholder="contraseña" formControlName="password" required>
+      <label for="floatingPassword">Contraseña</label>
+    </div>
+    <label class="message-error" *ngIf="alertPasswordModifyInput">Este campo es obligatorio</label>
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" [ngClass]="{'is-invalid': alertConfirmPasswordModifyInput}" id="confirmPassword" placeholder="confirmar contraseña" formControlName="confirmPassword" required>
+      <label for="floatingPassword">Confirmar Contraseña</label>
+    </div>
+    <label class="message-error" *ngIf="alertConfirmPasswordModifyInput">Este campo es obligatorio</label>
+    <div class="container-fluid h-100">
+      <div class="row w-100 align-items-center">
+        <div class="col text-center">
+          <button type="submit" class="btn btn-primary mt-3 btn-register" (click)="onClickModify()">Modificar</button> <br> <br>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="alertModifyFailed">
+      {{message}}
+    </div>
+  </section>
+</main>
+<footer class="footer text-center text-white">
+  <div class="text-center p-3">
+    <p class="h4">© 2022 Copyright: Estaciona+</p>
+  </div>
+</footer>

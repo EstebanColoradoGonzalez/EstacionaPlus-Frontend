@@ -12,6 +12,7 @@ import { HeaderLogedComponent } from './components/loged/header-loged/header-log
 import { SettingsComponent } from './components/loged/settings/settings.component';
 import { ProfileComponent } from './components/loged/profile/profile.component';
 import { MyparkingComponent } from './components/loged/myparking/myparking.component';
+import { MyreservationsComponent } from './components/loged/myreservations/myreservations.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MyparkingComponent } from './components/loged/myparking/myparking.compo
     HeaderLogedComponent,
     SettingsComponent,
     ProfileComponent,
-    MyparkingComponent
+    MyparkingComponent,
+    MyreservationsComponent
   ],
   imports: [
     BrowserModule,

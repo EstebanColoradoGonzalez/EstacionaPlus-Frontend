@@ -1,1 +1,122 @@
-<p>myparking works!</p>
+<header class="header-content">
+  <app-header-loged></app-header-loged>
+  <section class="information">
+    <h1>
+      Parqueadero UCO
+    </h1>
+    <p>
+      <strong>NIT:</strong> 11111111-8
+      <br>
+      <strong>Dirección:</strong> Calle 45
+      <br>
+      Rionegro, Antioquia
+    </p>
+  </section>
+</header>
+<main>
+  <section class="places__section">
+    <h1 class="place-title" >Lugares</h1>
+    <div class="container-fluid">
+      <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">1 - A1</h5>
+                <h6 class="card-subtitle mb-2 text-muted"> Tipo de Lugar: Motocicleta</h6>
+                <figure class="container-image" *ngIf="true">
+                  <img src="../../../assets/images/asientoDisponible.png" alt="Disponible">
+                </figure>
+                <figure class="container-image" *ngIf="false">
+                  <img src="../../../assets/images/asientoOcupado.png" alt="No Disponible">
+                </figure>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="modify-section">
+    <div class="container-fluid h-100">
+      <div class="row w-100 align-items-center">
+        <div class="col text-center">
+          <a class="btn btn-primary mt-3 btn-register" data-bs-toggle="modal" data-bs-target="#recordParking" data-bs-dismiss="modal">Modificar</a> <br> <br>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="recordParking" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modificar Estacionamiento</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" [formGroup]="formRecordParking">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" [ngClass]="{'is-invalid': alertNameInput}" id="name" placeholder="Nombre" formControlName="name" required>
+              <label for="floatingInput">Nombre</label>
+            </div>
+            <label class="message-error" *ngIf="alertNameInput">Este campo es obligatorio</label>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" [ngClass]="{'is-invalid': alertNITInput}" id="nit" placeholder="NIT" formControlName="nit"required>
+              <label for="floatingInput">NIT</label>
+            </div>
+            <label class="message-error" *ngIf="alertNITInput">Este campo es obligatorio</label>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" [ngClass]="{'is-invalid': alertAddressInput}" id="address" placeholder="Dirección" formControlName="address" required>
+              <label for="floatingInput">Dirección</label>
+            </div>
+            <label class="message-error" *ngIf="alertAddressInput">Este campo es obligatorio</label>
+
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
+              <select class="form-select" id="inputGroupSelect01" [(ngModel)]="stateSelected" (change)="captureState()" formControlName="state" required>
+                <option value="0">Elige...</option>
+                <option [value]="item" *ngFor="let item of states">{{item}}</option>
+              </select>
+            </div>
+            <label class="message-error" *ngIf="alertStateInput">Este campo es obligatorio</label>
+
+            <div class="input-group mb-3" *ngIf="cityField">
+              <label class="input-group-text" for="inputGroupSelect02">Ciudad</label>
+              <select class="form-select" id="inputGroupSelect02" [(ngModel)]="citySelected" (change)="captureCity()" formControlName="city" required>
+                <option value="0">Elige...</option>
+                <option [value]="item" *ngFor="let item of cities">{{item}}</option>
+              </select>
+            </div>
+            <label class="message-error" *ngIf="alertCityInput">Este campo es obligatorio</label>
+
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" [ngClass]="{'is-invalid': alertCarPlacesInput}" id="phone" placeholder="Numero de Automoviles" formControlName="autoPlaces" required>
+              <label for="floatingInput">Número de Lugares para Automoviles</label>
+            </div>
+            <label class="message-error" *ngIf="alertCarPlacesInput">Este campo es obligatorio</label>
+
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" [ngClass]="{'is-invalid': alertMotoPlacesInput}" id="phone" placeholder="Numero de Motocicletas" formControlName="motoPlaces" required>
+              <label for="floatingInput">Número de Lugares para Motocicletas</label>
+            </div>
+            <label class="message-error" *ngIf="alertMotoPlacesInput">Este campo es obligatorio</label>
+
+            <div class="container-fluid h-100">
+              <div class="row w-100 align-items-center">
+                <div class="col text-center">
+                  <button type="submit" class="btn btn-primary mt-3 btn-register" (click)="onClickModifyParking()">Modificar Estacionamiento</button> <br> <br>
+                </div>
+              </div>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="alertSignUpFailed">
+              {{message}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer text-center text-white">
+    <div class="text-center p-3">
+      <p class="h4">© 2022 Copyright: Estaciona+</p>
+    </div>
+</footer>

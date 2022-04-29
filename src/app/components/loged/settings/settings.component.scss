@@ -1,0 +1,134 @@
+.header-content
+{
+  background-image: url('../../../../assets/images/fondo.jpg');
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.information
+{
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.information h1
+{
+  color: var(--just-white);
+  font-size: 5rem;
+
+}
+
+.form-floating .form-control
+{
+  padding: 30px 15px 15px 15px;
+  font-size: 1.4rem;
+}
+
+input, label
+{
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+input
+{
+  width: 30vw;
+}
+
+.form-controled
+{
+  padding-top: 5px;;
+  padding-bottom: 10px;
+}
+
+.datalist
+{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+main
+{
+  margin: 15px;
+}
+
+.card
+{
+  margin: 0px 10px 15px 10 px;
+}
+
+.card-body
+{
+  margin: 5px;
+}
+
+.card-header
+{
+  font-size: 2rem;
+  font-weight: var(--bold);
+  padding-bottom: 5px;
+}
+
+.card-title
+{
+  font-size: 1.8rem;
+}
+
+.form-floating label, .alert div, .card button
+{
+  font-size: 1.4rem;
+}
+
+.message-error
+{
+  padding-left: 2px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+
+.card select
+{
+  font-size: 1.4rem;
+}
+
+main p
+{
+  text-align:center;
+  font-size: 1.4rem;
+}
+
+.btn-container
+{
+  margin: 15px;
+}
+
+.btn
+{
+  width: 15vw;
+  font-size: 1.4rem;
+  font-weight: var(--bold);
+}
+
+.col
+{
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.footer
+{
+  background: linear-gradient(#0348af, #0d6efd);
+}
+
+.footer div
+{
+  background-color: primary;
+}

@@ -1,0 +1,153 @@
+.header-content
+{
+  background-image: url('../../../../assets/images/fondo.jpg');
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.information
+{
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.information h1
+{
+  color: var(--just-white);
+  font-size: 5rem;
+
+}
+
+.information p
+{
+  color: var(--just-white);
+  font-size: 1.8rem;
+  margin-top: 50px;
+}
+
+.container-image img
+{
+  width: 50px;
+  height: 50px;
+}
+
+.places__section
+{
+  margin: 15px;
+}
+
+.place-title
+{
+  font-size: 3rem;
+  padding-left: 6px;
+  padding-bottom: 15px;
+  font-weight: var(--bold);
+  color: var(--primary-blue);
+}
+
+.row
+{
+  padding-bottom: 15px;
+}
+
+.col-md-4
+{
+  padding-bottom: 15px;
+}
+
+.card-title
+{
+  font-size: 2rem;
+}
+
+.card-subtitle
+{
+  font-size: 1.8rem;
+}
+
+.card-text
+{
+  font-size: 1.6rem;
+}
+
+.container-image
+{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-container
+{
+  margin: 15px;
+}
+
+.btn
+{
+  width: 15vw;
+  font-size: 1.4rem;
+  font-weight: var(--bold);
+}
+
+.form-controled
+{
+  padding-top: 5px;;
+  padding-bottom: 10px;
+}
+
+.nav-link, .nav-item button, .modal-title, .dropdown-item
+{
+  font-size: 1.6rem;
+}
+
+.form-floating .form-control
+{
+  padding-top: 30px;
+  padding-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.form-controled
+{
+  padding-top: 5px;;
+  padding-bottom: 10px;
+}
+
+.form-floating label, .alert div, .modal-content button
+{
+  font-size: 1.4rem;
+}
+
+.message-error
+{
+  padding-left: 2px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+
+.modal-body select
+{
+  font-size: 1.4rem;
+}
+
+.modal-content p
+{
+  text-align:center;
+  font-size: 1.4rem;
+}
+
+.footer
+{
+  background: linear-gradient(#0348af, #0d6efd);
+}
+
+.footer div
+{
+  background-color: primary;
+}
+
