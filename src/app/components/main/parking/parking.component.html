@@ -21,12 +21,12 @@
         <div class="col" *ngFor="let place of parking.places">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">{{ place.code }} - {{ place.position }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted"> Tipo de Lugar: {{ place.typePlace.name }}</h6>
-                <figure class="container-image" *ngIf="!place.isTaken">
+              <h5 class="card-title">{{ place.code }} - {{ place.place.position }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted"> Tipo de Lugar: {{ place.place.typePlace.name }}</h6>
+                <figure class="container-image" *ngIf="!place.taken">
                   <img src="../../../assets/images/asientoDisponible.png" alt="Disponible">
                 </figure>
-                <figure class="container-image" *ngIf="place.isTaken">
+                <figure class="container-image" *ngIf="place.taken">
                   <img src="../../../assets/images/asientoOcupado.png" alt="Disponible">
                 </figure>
               </div>

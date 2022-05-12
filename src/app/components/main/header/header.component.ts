@@ -191,7 +191,7 @@ export class HeaderComponent implements OnInit
       if(response.messages[0] === 'OK')
       {
         let token = response.data[0];
-        window.localStorage.setItem("Authorization", token as string);
+        window.localStorage.setItem("token", token as string);
         window.localStorage.setItem("email", this.login.email);
         window.location.href= '/home';
       }

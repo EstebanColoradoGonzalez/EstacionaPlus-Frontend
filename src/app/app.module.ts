@@ -13,6 +13,8 @@ import { SettingsComponent } from './components/loged/settings/settings.componen
 import { ProfileComponent } from './components/loged/profile/profile.component';
 import { MyparkingComponent } from './components/loged/myparking/myparking.component';
 import { MyreservationsComponent } from './components/loged/myreservations/myreservations.component';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { AuthorizationGuard } from './routeguards/authorization.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,14 @@ import { MyreservationsComponent } from './components/loged/myreservations/myres
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers:
+  [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi: true
+  },
+    AuthorizationGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@ import { AboutusComponent } from './components/main/aboutus/aboutus.component';
 import { HomeComponent } from './components/main/home/home.component';
 import { ParkingComponent } from './components/main/parking/parking.component';
 import { MyreservationsComponent } from './components/loged/myreservations/myreservations.component';
+import { AuthorizationGuard } from './routeguards/authorization.guard';
 
 const routes: Routes = [
   {
@@ -23,19 +24,19 @@ const routes: Routes = [
   },
   {
     path: 'settings/:userCode',
-    component: SettingsComponent
+    component: SettingsComponent, canActivate: [AuthorizationGuard]
   },
   {
     path: 'myparking/:parkingCode',
-    component: MyparkingComponent
+    component: MyparkingComponent, canActivate: [AuthorizationGuard]
   },
   {
     path: 'profile/:userCode',
-    component: ProfileComponent
+    component: ProfileComponent, canActivate: [AuthorizationGuard]
   },
   {
     path: 'myreservations/:userCode',
-    component: MyreservationsComponent
+    component: MyreservationsComponent, canActivate: [AuthorizationGuard]
   },
   {
     path: '**',

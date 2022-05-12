@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit
   parkings: Array<Parking> = [];
   code: number | undefined;
   user: User = new User();
-  isLoged!: boolean;
+  isLoged: boolean = false;
 
   constructor(private parkingService: ParkingService, private userService: UserService, )
   {
@@ -25,13 +25,9 @@ export class HomeComponent implements OnInit
   {
     this.getAll();
 
-    if(localStorage.getItem('email') !== "")
+    if(localStorage.getItem("token") !== "")
     {
       this.isLoged = true
-    }
-    else
-    {
-      this.isLoged = false;
     }
   }
 

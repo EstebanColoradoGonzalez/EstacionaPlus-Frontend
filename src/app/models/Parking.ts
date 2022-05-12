@@ -1,5 +1,5 @@
 import { City } from "./City";
-import { Place } from "./Place";
+import { ParkingPlace } from "./ParkingPlace";
 
 export class Parking implements ResponseRequestParking
 {
@@ -9,7 +9,7 @@ export class Parking implements ResponseRequestParking
   name: string = '';
   address: string = '';
   city: City = new City();
-  places: Array<Place> = new Array<Place>();
+  places: Array<ParkingPlace> = new Array<ParkingPlace>();
 
   constructor()
   {
