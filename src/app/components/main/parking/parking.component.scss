@@ -91,3 +91,63 @@
 {
   background-color: primary;
 }
+
+.btn-section
+{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 15px 0;
+}
+
+.btn-primary
+{
+  font-size: 1.6rem;
+}
+
+.form-floating .form-control
+{
+  padding-top: 30px;
+  padding-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.form-controled
+{
+  padding-top: 5px;;
+  padding-bottom: 10px;
+}
+
+.datalist
+{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.nav-link, .nav-item button, .modal-title
+{
+  font-size: 1.6rem;
+}
+
+.form-floating label, .alert div, .modal-content button
+{
+  font-size: 1.4rem;
+}
+
+.message-error
+{
+  padding-left: 2px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+
+.modal-body select
+{
+  font-size: 1.4rem;
+}
+
+.modal-content p
+{
+  text-align:center;
+  font-size: 1.4rem;
+}

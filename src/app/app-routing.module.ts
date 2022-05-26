@@ -24,19 +24,19 @@ const routes: Routes = [
   },
   {
     path: 'settings/:userCode',
-    component: SettingsComponent, canActivate: [AuthorizationGuard]
+    component: SettingsComponent
   },
   {
     path: 'myparking/:parkingCode',
-    component: MyparkingComponent, canActivate: [AuthorizationGuard]
+    component: MyparkingComponent
   },
   {
     path: 'profile/:userCode',
-    component: ProfileComponent, canActivate: [AuthorizationGuard]
+    component: ProfileComponent
   },
   {
-    path: 'myreservations/:userCode',
-    component: MyreservationsComponent, canActivate: [AuthorizationGuard]
+    path: 'myreservations/:reservationCode',
+    component: MyreservationsComponent
   },
   {
     path: '**',

@@ -16,6 +16,7 @@ import { UserService } from '../../../services/models/user.service';
 export class HeaderComponent implements OnInit
 {
   user: User = new User();
+  users: Array<User> = [];
   userLogon: User = new User();
   login: Login = new Login();
   password: string = "";
@@ -98,11 +99,20 @@ export class HeaderComponent implements OnInit
     this.user.email = this.formSignin.get('email')?.value;
     this.user.password = this.formSignin.get('password')?.value;
     this.password = this.formSignin.get('confirmPassword')?.value;
-    this.user.userRole.code = 1;
-    this.user.userRole.name = 'ROLE_USER';
     this.user.vehicle.license = this.formSignin.get('license')?.value;
     this.user.vehicle.typeVehicle.code = 1;
     this.user.vehicle.typeVehicle.name = this.formSignin.get('typeVehicle')?.value;
+
+    this.userService.getAll().subscribe(reponse =>
+    {
+      this.users = reponse.data;
+
+      let lastIndex = this.users[this.users.length - 1].code + 1;
+      let lastIndex2 = this.users[this.users.length - 1].vehicle.code + 1;
+
+      this.user.code = lastIndex;
+      this.user.vehicle.code = lastIndex2;
+    });
 
     if(this.user.names === "")
     {
@@ -149,6 +159,8 @@ export class HeaderComponent implements OnInit
       this.alertConfirmPasswordSigninInput = true;
     }
 
+    console.log(this.user);
+
     if(this.user.password === this.password)
     {
       this.userService.save(this.user).subscribe(response =>
@@ -156,7 +168,6 @@ export class HeaderComponent implements OnInit
         if(response.status === 'SUCCESSFUL')
         {
           this.alertSignUpSuccessful = true;
-          console.log(response);
         }
         else
         {

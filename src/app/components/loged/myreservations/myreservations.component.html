@@ -7,31 +7,31 @@
 <main>
   <section class="card w-100">
     <div class="card-header">
-      Reservación # 1
+      Reservación # {{reservation.code}}
     </div>
     <div class="card-body">
       <h5 class="card-title">Fecha de la Reservación</h5>
-      <p class="card-text">29/4/2022</p>
+      <p class="card-text">{{reservation.date}}</p>
     </div>
 
     <div class="card-body">
       <h5 class="card-title">Hora de Llegada - Hora de Salida</h5>
-      <p class="card-text">13:00:00 - 15:00:00</p>
+      <p class="card-text">{{reservation.arrivalTime}} - {{reservation.departureTime}}</p>
     </div>
 
     <div class="card-body">
       <h5 class="card-title">Precio</h5>
-      <p class="card-text">$4000</p>
+      <p class="card-text">{{reservation.price.value}}</p>
     </div>
 
     <div class="card-body">
       <h5 class="card-title">Lugar</h5>
-      <p class="card-text">#1 - A1: Motocicleta</p>
+      <p class="card-text">#{{reservation.place.code}} - {{reservation.place.place.position}}: {{reservation.place.place.typePlace.name}}</p>
     </div>
 
     <div class="card-body">
       <h5 class="card-title">Metodo de Pago</h5>
-      <p class="card-text">Contra-entrega</p>
+      <p class="card-text">{{reservation.paymentMethod.name}}</p>
     </div>
   </section>
 </main>

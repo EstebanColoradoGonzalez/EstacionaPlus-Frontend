@@ -21,9 +21,10 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
             <li><a class="dropdown-item" [title]="user.names" [routerLink]="['/profile', user.code]">Perfil</a></li>
-            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#recordParking" data-bs-dismiss="modal">¿Tienes una Estacionamiento?</a></li>
-            <li><a class="dropdown-item" [title]="parking.name" [routerLink]="['/myparking', parking.code]" *ngIf="false">Mi Estacionamiento</a></li>
+            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#recordParking" data-bs-dismiss="modal" *ngIf="haveParking">¿Tienes una Estacionamiento?</a></li>
+            <li><a class="dropdown-item" [title]="parking.name" [routerLink]="['/myparking', parking.code]" *ngIf="isAdmin">Mi Estacionamiento</a></li>
             <li><a class="dropdown-item" [title]="user.names" [routerLink]="['/settings', user.code]">Ajustes</a></li>
+            <li><a class="dropdown-item" [title]="user.names" [routerLink]="['/myreservations', code]">Mis Reservaciones</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="onLogOut()">Cerrar Sesión</a></li>
           </ul>

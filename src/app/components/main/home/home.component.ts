@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit
   user: User = new User();
   isLoged: boolean = false;
 
-  constructor(private parkingService: ParkingService, private userService: UserService, )
+  constructor(private parkingService: ParkingService)
   {
     this.getAll();
   }

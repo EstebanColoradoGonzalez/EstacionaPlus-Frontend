@@ -1,18 +1,18 @@
-import { PaymentMethod } from "./PaymentMethod";
-import { Place } from "./Place";
-import { Price } from "./Price";
-import { ReservedTime } from "./ReservedTime";
-import { User } from "./User";
+import { ParkingPlace } from './ParkingPlace';
+import { PaymentMethod } from './PaymentMethod';
+import { Price } from './Price';
+import { ReservedTime } from './ReservedTime';
+import { User } from './User';
 
 export class Reservation implements ResponseRequestReservation
 {
   code: number = 0;
   date: string = '';
   arrivalTime: string = '';
-  departureTime: string = '';
+  departureTime: string = '00:00:00';
   reservedTime: ReservedTime = new ReservedTime();
   price: Price = new Price();
-  place: Place = new Place();
+  place: ParkingPlace = new ParkingPlace();
   paymentMethod: PaymentMethod = new PaymentMethod();
   user: User = new User();
 

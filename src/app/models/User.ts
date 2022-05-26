@@ -10,7 +10,7 @@ export class User implements ResponseRequestUser
   phone: string = '';
   email: string = '';
   password: string = '';
-  userRole: UserRole = new UserRole();
+  roles: Array<UserRole> = new Array<UserRole>();
   vehicle: Vehicle = new Vehicle();
 
   constructor()

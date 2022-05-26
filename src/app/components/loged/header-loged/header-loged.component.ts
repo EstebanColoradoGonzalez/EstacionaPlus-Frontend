@@ -1,3 +1,4 @@
+import { Reservation } from 'src/app/models/Reservation';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Parking } from './../../../models/Parking';
 import { HttpHeaders } from '@angular/common/http';
@@ -6,6 +7,7 @@ import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/models/user.service';
 import { State } from 'src/app/models/State';
 import { City } from 'src/app/models/City';
+import { ReservationService } from 'src/app/services/models/reservation.service';
 
 @Component({
   selector: 'app-header-loged',
@@ -18,6 +20,8 @@ export class HeaderLogedComponent implements OnInit
   parking: Parking = new Parking();
   states: Array<State> = [];
   cities: Array<City> = [];
+  code: number = 0;
+  reservations: Array<Reservation> = [];
 
   alertNameInput: boolean = false;
   alertNITInput: boolean = false;
@@ -30,6 +34,8 @@ export class HeaderLogedComponent implements OnInit
   alertSignUpFailed: boolean = false;
   alertStateInput: boolean = false;
   alertCityInput: boolean = false;
+  haveParking: boolean = true;
+  isAdmin: boolean = false
 
   message: String = "";
 
@@ -45,7 +51,7 @@ export class HeaderLogedComponent implements OnInit
     motoPlaces: new FormControl('', Validators.required)
   });
 
-  constructor(private userService: UserService)
+  constructor(private userService: UserService, private reservationService: ReservationService)
   {
 
   }
@@ -53,6 +59,21 @@ export class HeaderLogedComponent implements OnInit
   ngOnInit(): void
   {
     this.getUser();
+
+    this.reservationService.getAll().subscribe(response =>
+    {
+        this.reservations = response.data;
+
+        for(let reservation of this.reservations)
+        {
+          if(reservation.user.code === this.user.code)
+          {
+            this.code = reservation.code;
+          }
+        }
+    });
+
+
   }
 
   captureState(): void
@@ -80,12 +101,19 @@ export class HeaderLogedComponent implements OnInit
   getUser(): void
   {
     let email = localStorage.getItem("email");
-    console.log(email);
 
     this.userService.getByEmail(email as string).subscribe(response =>
     {
       this.user = response.data[0];
-      console.log(response);
+
+      for(let role of this.user.roles)
+      {
+        if(role.name === "ROLE_ADMIN")
+        {
+          this.isAdmin = true;
+          this.haveParking = false;
+        }
+      }
     })
   }
 }

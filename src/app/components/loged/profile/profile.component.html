@@ -1,7 +1,7 @@
 <header class="header-content">
   <app-header-loged></app-header-loged>
   <section class="information">
-      <h1>Esteban Colorado González</h1>
+      <h1>{{user.names}} {{user.lastNames}}</h1>
   </section>
 </header>
 <main>
@@ -11,20 +11,20 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">Número de Identificación</h5>
-      <p class="card-text">1038418594</p>
+      <p class="card-text">{{user.identificationNumber}}</p>
     </div>
 
     <div class="card-body">
       <h5 class="card-title">Número de Telefono</h5>
-      <p class="card-text">3228486049</p>
+      <p class="card-text">{{user.phone}}</p>
     </div>
 
     <div class="card-body">
       <h5 class="card-title">Correo Electronico</h5>
-      <p class="card-text">estebancoloradogonzalez@gmail.com</p>
+      <p class="card-text">{{user.email}}</p>
     </div>
 
-    <div class="btn-container">
+    <div class="btn-container" *ngIf="false">
       <a href="#" class="btn btn-primary">Mi Estacionamiento</a>
     </div>
 
@@ -35,12 +35,12 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">Tipo de Vehiculo</h5>
-      <p class="card-text">Motocicleta</p>
+      <p class="card-text">{{user.vehicle.typeVehicle.name}}</p>
     </div>
 
     <div class="card-body">
       <h5 class="card-title">Licencia</h5>
-      <p class="card-text">USV36D</p>
+      <p class="card-text">{{user.vehicle.license}}</p>
     </div>
   </section>
 </main>

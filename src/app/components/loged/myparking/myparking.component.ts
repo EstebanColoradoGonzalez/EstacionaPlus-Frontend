@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { State } from '@popperjs/core';
 import { City } from 'src/app/models/City';
-import { Parking } from 'src/app/models/Parking';
+import { Parking, ResponseRequestParking } from 'src/app/models/Parking';
 import { User } from 'src/app/models/User';
+import { UserParkingService } from 'src/app/services/models/userparking.service';
 
 @Component({
   selector: 'app-myparking',
@@ -13,9 +15,10 @@ import { User } from 'src/app/models/User';
 export class MyparkingComponent implements OnInit
 {
   user: User = new User();
-  parking: Parking = new Parking();
+  parking: Parking | undefined;
   states: Array<State> = [];
   cities: Array<City> = [];
+  parkings: Array<Parking> = [];
 
   alertNameInput: boolean = false;
   alertNITInput: boolean = false;
@@ -43,14 +46,14 @@ export class MyparkingComponent implements OnInit
     motoPlaces: new FormControl('', Validators.required)
   });
 
-  constructor()
+  constructor(private route: ActivatedRoute, private userParkingService: UserParkingService)
   {
 
   }
 
   ngOnInit(): void
   {
-    throw new Error('Method not implemented.');
+    console.log();
   }
 
   onClickModifyParking(): void

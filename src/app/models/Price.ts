@@ -1,7 +1,7 @@
 export class Price
 {
-  code: number = 0;
-  value: number = 0;
+  code: number = 1;
+  value: number = 1;
 
   constructor()
   {

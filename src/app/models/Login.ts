@@ -1,6 +1,5 @@
 export class Login implements ResponseRequestLogin
 {
-  [x: string]: any;
   email: string = '';
   password: string = '';
 
