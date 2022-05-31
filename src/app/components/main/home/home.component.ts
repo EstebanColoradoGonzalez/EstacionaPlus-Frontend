@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit
   {
     this.getAll();
 
-    if(localStorage.getItem("token") !== "")
+    if(sessionStorage.getItem("token") !== "")
     {
       this.isLoged = true
     }

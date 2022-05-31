@@ -12,7 +12,7 @@ export class AuthorizationGuard implements CanActivate
   {
     let hasRole = false;
 
-    let token = localStorage.getItem("token");
+    let token = sessionStorage.getItem("token");
 
     if(token == undefined || !hasRole) this.router.navigate(['/']);
 

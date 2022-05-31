@@ -130,7 +130,7 @@ export class ParkingComponent implements OnInit
       }
     });
 
-    if(localStorage.getItem("token") !== "")
+    if(sessionStorage.getItem("token") !== "")
     {
       this.isLoged = true
     }

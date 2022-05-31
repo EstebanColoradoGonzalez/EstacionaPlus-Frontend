@@ -93,14 +93,14 @@ export class HeaderLogedComponent implements OnInit
 
   onLogOut(): void
   {
-    window.localStorage.setItem("token", "");
-    window.localStorage.setItem("email", "");
+    sessionStorage.setItem("token", "");
+    sessionStorage.setItem("email", "");
     window.location.href= '/home';
   }
 
   getUser(): void
   {
-    let email = localStorage.getItem("email");
+    let email = sessionStorage.getItem("email");
 
     this.userService.getByEmail(email as string).subscribe(response =>
     {
