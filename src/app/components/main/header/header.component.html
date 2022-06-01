@@ -16,7 +16,7 @@
           <a class="nav-link" routerLink="/aboutus">Acerca de Nosotros</a>
         </li>
         <li class="nav-item">
-          <button id="loginButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">Iniciar Sesión</button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">Iniciar Sesión</button>
         </li>
       </ul>
     </div>
@@ -43,7 +43,7 @@
         <div class="container-fluid h-100">
           <div class="row w-100 align-items-center">
             <div class="col text-center">
-              <button type="submit" class="btn btn-primary" (click)="onLogin()">Iniciar Sesión</button>
+              <button id="btnlog" type="submit" class="btn btn-primary" (click)="onLogin()">Iniciar Sesión</button>
             </div>
           </div>
         </div>
@@ -96,9 +96,9 @@
         </div>
         <label class="message-error" *ngIf="alertEmailSigninInput">Este campo es obligatorio</label>
         <div class="form-controled">
-          <input class="form-control datalist" [ngClass]="{'is-invalid': alertTypeVehicleSigninInput}" list="datalistOptions" id="exampleDataList" placeholder="Tipo de Vehiculo" formControlName="typeVehicle">
+          <input class="form-control datalist" [ngClass]="{'is-invalid': alertTypeVehicleSigninInput}" list="datalistOptions3" id="exampleDataList3" placeholder="Tipo de Vehiculo" formControlName="typeVehicle">
           <label class="message-error" *ngIf="alertTypeVehicleSigninInput">Este campo es obligatorio</label>
-          <datalist class="datalist" id="datalistOptions">
+          <datalist class="datalist" id="datalistOptions3">
             <option value="Motocicleta">
             <option value="AutoMovil">
           </datalist>

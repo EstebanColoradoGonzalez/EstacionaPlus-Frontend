@@ -51,58 +51,60 @@ export class ParkingComponent implements OnInit
 
   ngOnInit(): void
   {
-    let email = localStorage.getItem("email");
+    this.parkingService.getAll().subscribe((response: ResponseRequestParking) =>
+    {
+      this.parkings = response.data;
+
+      const routeParams = this.route.snapshot.paramMap;
+      const parkingCodeFromRoute = Number(routeParams.get('parkingCode'));
+
+      this.parking = this.parkings.find((parking) => parking.code === parkingCodeFromRoute)!;
+      this.parking.places.sort(function(a, b)
+      {
+        if(a.place.code > b.place.code)
+        {
+          return 1;
+        }
+
+        if(a.place.code < b.place.code)
+        {
+          return -1;
+        }
+
+        return 0;
+      });
+    });
+
+    let email = sessionStorage.getItem("email");
 
     this.userService.getByEmailWithPassword(email as string).subscribe(response =>
     {
       this.user = response.data[0];
-      this.parkingService.getAll().subscribe((response: ResponseRequestParking) =>
+      console.log(this.parkings);
+
+      for(let place of this.parking.places)
       {
-        this.parkings = response.data;
-
-        const routeParams = this.route.snapshot.paramMap;
-        const parkingCodeFromRoute = Number(routeParams.get('parkingCode'));
-
-        this.parking = this.parkings.find((parking) => parking.code === parkingCodeFromRoute)!;
-        this.parking.places.sort(function(a, b)
+        if(!place.taken && place.place.typePlace.name === this.user.vehicle.typeVehicle.name)
         {
-          if(a.place.code > b.place.code)
-          {
-            return 1;
-          }
+          this.places.push(place);
+        }
+      }
 
-          if(a.place.code < b.place.code)
-          {
-            return -1;
-          }
-
-          return 0;
-        });
-
-        for(let place of this.parking.places)
+      this.places.sort(function(a, b)
+      {
+        if(a.code > b.code)
         {
-          if(!place.taken && place.place.typePlace.name === this.user.vehicle.typeVehicle.name)
-          {
-            this.places.push(place);
-          }
+          return 1;
         }
 
-        this.places.sort(function(a, b)
+        if(a.code < b.code)
         {
-          if(a.code > b.code)
-          {
-            return 1;
-          }
-
-          if(a.code < b.code)
-          {
-            return -1;
-          }
+          return -1;
+        }
 
           return 0;
-        });
       });
-    })
+    });
 
     let payment1 = new PaymentMethod();
     let payment2 = new PaymentMethod();
